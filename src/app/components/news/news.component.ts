@@ -26,7 +26,6 @@ export class NewsComponent implements OnInit {
   }
 
   ngOnInit() {
-    if(JSON.parse(sessionStorage.getItem('authorized'))){
       this.postService.getPosts().subscribe((posts)=> {
         this.posts = posts;
         let myID = [];
@@ -38,9 +37,6 @@ export class NewsComponent implements OnInit {
         this.followedPosts = this.search.followedPostsFunction(needUsersPosts, this.posts);
         this.search.sortByDate(this.followedPosts);
       });
-    }else{
-      this.router.navigate( [''] );
-    }
   }
 
   public followTrigger(e, userid) {

@@ -24,15 +24,11 @@ export class MypostsComponent implements OnInit {
   }
 
   ngOnInit() {
-    if(JSON.parse(sessionStorage.getItem('authorized'))){
       this.postService.getPosts().subscribe((posts)=> {
         this.posts = posts;
         this.userPosts = this.search.findWhatYouWant(this.mainUser.posts, this.posts, 'postid');
         this.search.sortByDate(this.userPosts);
       });
-    }else{
-      this.router.navigate( [''] );
-    }
   }
   public create() {
     let newPostItem = {

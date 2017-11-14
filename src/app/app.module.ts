@@ -19,17 +19,20 @@ import {PostService} from "./services/post.service";
 import {SearchService} from "./services/search.service";
 import { FollowbuttonComponent } from './components/followbutton/followbutton.component';
 import { LikebuttonComponent } from './components/likebutton/likebutton.component';
+import {AuthGuardService} from "./services/auth-guard.service";
+import {NoContentComponent} from "./components/no-content/no-content.component";
 
 export const HOMEROUTES: Routes = [
-  { path : 'news', component : NewsComponent },
-  { path : 'follow', component : FollowComponent },
-  { path : 'myposts', component : MypostsComponent }
+  { path : 'news', component : NewsComponent, canActivate: [AuthGuardService] },
+  { path : 'follow', component : FollowComponent, canActivate: [AuthGuardService] },
+  { path : 'myposts', component : MypostsComponent, canActivate: [AuthGuardService] }
 ];
 
 export const ROUTES: Routes = [
   { path : '', component : LoginComponent },
   { path : 'register', component : RegisterComponent },
-  { path : 'home', component : HomeComponent, children: HOMEROUTES }
+  { path : 'home', component : HomeComponent, children: HOMEROUTES, canActivate: [AuthGuardService] },
+  { path : '**', component: NoContentComponent }
 
 ];
 
@@ -43,7 +46,8 @@ export const ROUTES: Routes = [
     FollowComponent,
     MypostsComponent,
     FollowbuttonComponent,
-    LikebuttonComponent
+    LikebuttonComponent,
+    NoContentComponent
   ],
   imports: [
     BrowserModule,
@@ -52,7 +56,7 @@ export const ROUTES: Routes = [
     HttpClientModule,
     RouterModule.forRoot( ROUTES )
   ],
-  providers: [UserService, PostService, SearchService],
+  providers: [UserService, PostService, SearchService, AuthGuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

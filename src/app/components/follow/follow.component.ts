@@ -26,16 +26,12 @@ export class FollowComponent implements OnInit {
   }
 
   ngOnInit() {
-    if(JSON.parse(sessionStorage.getItem('authorized'))){
       this.postService.getPosts().subscribe((posts)=> {
         this.posts = posts;
         this.followed = this.search.findWhatYouWant(this.mainUser.followed, this.users, 'userid');
         this.followedPosts = this.search.followedPostsFunction(this.followed, this.posts);
         this.search.sortByDate(this.followedPosts);
       });
-    }else{
-      this.router.navigate( [''] );
-    }
   }
 
   public followTrigger(e, userid) {

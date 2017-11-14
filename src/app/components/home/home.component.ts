@@ -27,14 +27,10 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {
-    if(JSON.parse(sessionStorage.getItem('authorized'))){
       this.userService.getFollowers().subscribe((followedPeople) => {
         this.followed = followedPeople;
         this.peopleOnline = this.search.findWhatYouWant(this.followed, this.users, 'userid');
       });
-    }else{
-      this.router.navigate( [''] );
-    }
 
   }
 
