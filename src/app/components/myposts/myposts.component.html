@@ -1,0 +1,40 @@
+
+  <h4>Type new post =)</h4>
+  <form name="form" class="todo-form"  (ngSubmit)="create(); todoForm.reset()" #todoForm="ngForm">
+    <div class="form-group" >
+      <input type="text" class="form-control" name="post" [(ngModel)]="newPost" required/>
+     </div>
+    <div class="form-group">
+      <button class="btn btn-primary" type="submit" [disabled]="todoForm.form.invalid">Publish</button>
+    </div>
+  </form>
+  <div class="media-wrapper">
+    <div class="media" *ngFor="let post of userPosts">
+      <div class="media-left">
+        <img src={{mainUser.image}} class="media-object" style="width:45px">
+      </div>
+      <div class="media-body">
+        <h4 class="media-heading">{{mainUser.fname + ' ' + mainUser.lname}} <small><i>{{post.date | date}}</i></small></h4>
+        <p>{{post.message}}</p>
+        <app-likebutton [like]="like" [post]="post.postlike.length" (likeTrigger)="likeTrigger($event, post.userpostid, post.postlike)"></app-likebutton>
+        <div class="media" *ngFor="let comment of post.comments; let i = index;">
+          <div class="media-left">
+            <img src={{mainUser.image}} class="media-object" style="width:45px">
+          </div>
+          <div class="media-body">
+            <h4 class="media-heading">{{mainUser.fname + ' ' + mainUser.lname}} <small><i>{{comment.date | date}}</i></small></h4>
+            <p>{{comment.message}}</p>
+          </div>
+        </div>
+        <form name="form" class="todo-form comment"  (ngSubmit)="createComment(post); todoForm.reset()" #todoForm="ngForm">
+          <div class="form-group" >
+            <input type="text" class="form-control" name="post-{{i}}" [(ngModel)]="newComment" required/>
+          </div>
+          <div class="form-group">
+            <button class="btn btn-primary" type="submit" [disabled]="todoForm.form.invalid">Comment</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+

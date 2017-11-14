@@ -1,0 +1,25 @@
+<div class="jumbotron vertical-center">
+  <div class="col-sm-8 col-sm-offset-2">
+    <div class="col-md-6 col-md-offset-3">
+      <h2>Sign in</h2>
+      <form class="todo-form"  (ngSubmit)="signIn(); todoForm.reset()" #todoForm="ngForm" >
+        <div class="form-group" >
+          <label>Login</label>
+          <input type="text" class="form-control" [(ngModel)]="login" name="login"  required />
+          <!--<div *ngIf="f.submitted && !username.valid" class="help-block">Username is required</div>-->
+        </div>
+        <div class="form-group">
+          <label >Password</label>
+          <input type="password" class="form-control" [(ngModel)]="password" name="password" required />
+          <div class="help-block" *ngIf="invalid">Login or password are incorrect. Please try again or sign up</div>
+        </div>
+        <div class="form-group">
+          <button class="btn btn-primary" type="submit" [disabled]="todoForm.form.invalid">Sign in</button>
+          <a class="btn btn-link" routerLink="register">Sign up</a>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+

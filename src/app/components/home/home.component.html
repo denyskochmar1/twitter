@@ -1,0 +1,54 @@
+
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="javascript:void(0)"><img src="../../../assets/images/logo.png" alt=""></a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li [routerLinkActive]="['active']"><a routerLink="/home/myposts" >Home</a></li>
+        <li [routerLinkActive]="['active']"><a routerLink="/home/news" >News</a></li>
+        <li [routerLinkActive]="['active']"><a routerLink="/home/follow" >Following</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="javascript:void(0)" (click)="logOut()"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container-fluid text-center">
+  <div class="row content">
+    <div class="col-sm-3 sidenav" >
+      <div class="profile-info" >
+        <div class="card">
+          <div class="img-profile">
+            <img src={{mainUser.image}}>
+          </div>
+          <h1>{{mainUser.fname + ' ' + mainUser.lname}}</h1>
+          <p class="title">{{mainUser.login}}</p>
+          <p>Followers  <small>{{mainUser.followers.length}}</small></p>
+          <!--<p>Following  <small>{{mainUser.followed.length}}</small></p>-->
+          <p>Following  <small>{{followed.length}}</small></p>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-6 text-left">
+      <router-outlet></router-outlet>
+    </div>
+    <div class="col-sm-3 sidenav">
+      <div class="online-people">
+        <ul class="list-group">
+          <li class="list-group-item" ><h4>People Online</h4></li>
+          <li class="list-group-item" *ngFor="let people of peopleOnline">{{people.fname + ' ' + people.lname}}<span [ngClass]="people.online ? 'online' : 'badge'">{{people.online ? 'Online' : 'Offline'}}</span></li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</div>

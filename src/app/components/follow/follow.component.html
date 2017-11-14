@@ -1,0 +1,13 @@
+<div class="media-wrapper">
+  <div class="media" *ngFor="let post of followedPosts">
+    <div class="media-left">
+      <img src={{post.user.image}} class="media-object" style="width:45px">
+    </div>
+    <div class="media-body">
+      <h4 class="media-heading">{{post.user.fname + ' ' + post.user.lname}} <small><i>{{post.date | date}}</i></small></h4>
+      <p>{{post.message}}</p>
+      <app-followbutton [userId]="post.user.userid" (followTrigger)="followTrigger($event, post.user.userid)"></app-followbutton>
+      <app-likebutton [like]="like" [post]="post.postlike.length" (likeTrigger)="likeTrigger($event, post.user.userid, post.postlike)"></app-likebutton>
+    </div>
+  </div>
+</div>

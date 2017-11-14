@@ -1,0 +1,69 @@
+<div class="jumbotron vertical-center">
+  <div class="col-sm-8 col-sm-offset-2">
+    <div class="col-md-6 col-md-offset-3">
+      <h2>Sign up</h2>
+      <form class="todo-form"  (ngSubmit)="signUp(); todoForm.reset()" #todoForm="ngForm" >
+        <div class="form-group" >
+          <label>First Name</label>
+          <input type="text" class="form-control" name="firstname" [(ngModel)]="fname"  required />
+        </div>
+        <div class="form-group" >
+          <label>Last Name</label>
+          <input type="text" class="form-control" name="lasttname" [(ngModel)]="lname" required />
+        </div>
+        <div class="form-group">
+          <label>Email</label>
+          <input
+              id="contactemail"
+              class="form-control"
+              type="text"
+              name="email"
+              #contactemail="ngModel"
+              [(ngModel)]="email"
+              required
+              pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$">
+          <div class="md-errors-spacer" [hidden]="contactemail.valid || contactemail.untouched">
+            <div  *ngIf="contactemail.errors && contactemail.errors.required">
+              Email is required
+            </div>
+            <div  *ngIf="contactemail.errors && contactemail.errors.pattern">
+              Email is invalid
+            </div>
+          </div>
+        </div>
+        <div class="form-group" >
+          <label>Username</label>
+          <input type="text" class="form-control" name="username" [(ngModel)]="login" required />
+          <!--<div *ngIf="f.submitted && !username.valid" class="help-block">Username is required</div>-->
+        </div>
+        <div class="form-group">
+          <label >Password</label>
+          <input type="password" class="form-control" name="password" [(ngModel)]="password" required />
+
+        </div>
+        <div class="form-group">
+          <button class="btn btn-primary" type="submit" [disabled]="todoForm.form.invalid" data-toggle="modal" data-target="#myModal">Sign up</button>
+          <a class="btn btn-link" routerLink="">Sign in</a>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal fade" id="myModal" role="dialog">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" routerLink="">&times;</button>
+        <h4 class="modal-title">Registration</h4>
+      </div>
+      <div class="modal-body">
+        <p>Registration completed successfully</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" routerLink="">Ok</button>
+      </div>
+    </div>
+  </div>
+</div>

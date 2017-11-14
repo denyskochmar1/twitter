@@ -1,0 +1,44 @@
+.navbar-brand{
+    width:100px;
+}
+
+.navbar-brand img{
+    width: 67px;
+    position: absolute;
+    top:-7px;
+}
+
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    max-width: 300px;
+    margin: auto;
+    text-align: center;
+    padding-bottom: 24px;
+}
+
+.img-profile{
+    height: 200px;
+    overflow: hidden;
+}
+.img-profile img{
+    width:100%;
+}
+.title {
+    color: grey;
+    font-size: 18px;
+}
+.online{
+    background-color: green;
+    display: inline-block;
+    float: right;
+    min-width: 10px;
+    padding: 3px 7px;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    border-radius: 10px;
+}

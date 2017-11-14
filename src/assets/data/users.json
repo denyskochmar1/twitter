@@ -1,0 +1,110 @@
+[
+  {
+    "userid": "63615107-c943-488c-4ded-c4b792854f3e",
+    "fname": "Denis",
+    "lname": "Kochmar",
+    "image": "../../../assets/images/me.jpg",
+    "login": "cross",
+    "password": "qwerty",
+    "followed": [
+      "9bc9aaa6-a539-467b-2a75-0ed215a9a1c7",
+      "3fb98691-1c58-48bc-5e6d-9b3e4249c9cd"
+    ],
+    "followers": [
+      "9bc9aaa6-a539-467b-2a75-0ed215a9a1c7",
+      "3fb98691-1c58-48bc-5e6d-9b3e4249c9cd",
+      "86386d59-03f7-4726-5574-3d8086ee97a8"
+    ],
+    "likes": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "posts": [
+      2,
+      3,
+      4
+    ],
+    "online": true
+  },
+  {
+    "userid": "9bc9aaa6-a539-467b-2a75-0ed215a9a1c7",
+    "fname": "Petya",
+    "lname": "Petrov",
+    "image": "../../../assets/images/user1.jpg",
+    "login": "Petya",
+    "password": "qwerty",
+    "followed": [
+      "63615107-c943-488c-4ded-c4b792854f3e",
+      "3fb98691-1c58-48bc-5e6d-9b3e4249c9cd"
+    ],
+    "followers": [
+      "63615107-c943-488c-4ded-c4b792854f3e",
+      "3fb98691-1c58-48bc-5e6d-9b3e4249c9cd",
+      "86386d59-03f7-4726-5574-3d8086ee97a8"
+    ],
+    "likes": [],
+    "posts": [
+      1,
+      5
+    ],
+    "online": true
+  },
+  {
+    "userid": "3fb98691-1c58-48bc-5e6d-9b3e4249c9cd",
+    "fname": "Vasya",
+    "lname": "Vasilev",
+    "image": "../../../assets/images/user2.jpg",
+    "login": "Vasya",
+    "password": "qwerty",
+    "followed": [
+      "63615107-c943-488c-4ded-c4b792854f3e",
+      "9bc9aaa6-a539-467b-2a75-0ed215a9a1c7"
+    ],
+    "followers": [
+      "63615107-c943-488c-4ded-c4b792854f3e",
+      "9bc9aaa6-a539-467b-2a75-0ed215a9a1c7",
+      "86386d59-03f7-4726-5574-3d8086ee97a8"
+    ],
+    "likes": [
+      2,
+      3,
+      4
+    ],
+    "posts": [
+      6,
+      7
+    ],
+    "online": false
+  },
+  {
+    "userid": "86386d59-03f7-4726-5574-3d8086ee97a8",
+    "fname": "Vanya",
+    "lname": "Ivanov",
+    "image": "../../../assets/images/user3.jpg",
+    "login": "Vanya",
+    "password": "qwerty",
+    "followed": [
+      "63615107-c943-488c-4ded-c4b792854f3e",
+      "9bc9aaa6-a539-467b-2a75-0ed215a9a1c7"
+    ],
+    "followers": [
+      "9bc9aaa6-a539-467b-2a75-0ed215a9a1c7",
+      "63615107-c943-488c-4ded-c4b792854f3e"
+    ],
+    "likes": [
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "posts": [
+      8,
+      9
+    ],
+    "online": false
+  }
+]
